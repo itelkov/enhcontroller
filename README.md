@@ -21,11 +21,10 @@ Class MyController extends EnhController\Controller implements EnhController\Con
 		2 => 'MyNamespace\MyAction2',
 	];
 
-    	function __construct(EnhController\Mapper $mapper)
+	function __construct(EnhController\Mapper $mapper)
 	{
 		parent::__construct($mapper);
 	}
-
 }
 ```
 
@@ -39,14 +38,14 @@ use Selket\EnhController;
 Class MyAction1 extends EnhController\Action implements EnhController\ActionInterface {
 
 	public function call() {
-		return 'Hellow world 1!';
+		return 'Hellow world!';
 	}
 }
 
 Class MyAction2 extends EnhController\Action implements EnhController\ActionInterface {
 
 	public function call() {
-		return 'Hellow world 2!';
+		return $this->controller->call(1); // calls internally action MyNamespace\MyAction1
 	}
 }
 ```
